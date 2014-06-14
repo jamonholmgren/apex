@@ -1,0 +1,775 @@
+<?xml version='1.0'?>
+<signatures version='1.0'>
+<constant const='true' declared_type='NSString*' name='GCDWebServerAuthenticationMethod_Basic' type='@'/>
+<constant const='true' declared_type='NSString*' name='GCDWebServerAuthenticationMethod_DigestAccess' type='@'/>
+<constant const='true' declared_type='NSString*' name='GCDWebServerOption_AuthenticationAccounts' type='@'/>
+<constant const='true' declared_type='NSString*' name='GCDWebServerOption_AuthenticationMethod' type='@'/>
+<constant const='true' declared_type='NSString*' name='GCDWebServerOption_AuthenticationRealm' type='@'/>
+<constant const='true' declared_type='NSString*' name='GCDWebServerOption_AutomaticallyMapHEADToGET' type='@'/>
+<constant const='true' declared_type='NSString*' name='GCDWebServerOption_BonjourName' type='@'/>
+<constant const='true' declared_type='NSString*' name='GCDWebServerOption_ConnectedStateCoalescingInterval' type='@'/>
+<constant const='true' declared_type='NSString*' name='GCDWebServerOption_ConnectionClass' type='@'/>
+<constant const='true' declared_type='NSString*' name='GCDWebServerOption_MaxPendingConnections' type='@'/>
+<constant const='true' declared_type='NSString*' name='GCDWebServerOption_Port' type='@'/>
+<constant const='true' declared_type='NSString*' name='GCDWebServerOption_ServerName' type='@'/>
+<enum name='kGCDWebServerHTTPStatusCode_Accepted' value='202'/>
+<enum name='kGCDWebServerHTTPStatusCode_AlreadyReported' value='208'/>
+<enum name='kGCDWebServerHTTPStatusCode_BadGateway' value='502'/>
+<enum name='kGCDWebServerHTTPStatusCode_BadRequest' value='400'/>
+<enum name='kGCDWebServerHTTPStatusCode_Conflict' value='409'/>
+<enum name='kGCDWebServerHTTPStatusCode_Continue' value='100'/>
+<enum name='kGCDWebServerHTTPStatusCode_Created' value='201'/>
+<enum name='kGCDWebServerHTTPStatusCode_ExpectationFailed' value='417'/>
+<enum name='kGCDWebServerHTTPStatusCode_FailedDependency' value='424'/>
+<enum name='kGCDWebServerHTTPStatusCode_Forbidden' value='403'/>
+<enum name='kGCDWebServerHTTPStatusCode_Found' value='302'/>
+<enum name='kGCDWebServerHTTPStatusCode_GatewayTimeout' value='504'/>
+<enum name='kGCDWebServerHTTPStatusCode_Gone' value='410'/>
+<enum name='kGCDWebServerHTTPStatusCode_HTTPVersionNotSupported' value='505'/>
+<enum name='kGCDWebServerHTTPStatusCode_InsufficientStorage' value='507'/>
+<enum name='kGCDWebServerHTTPStatusCode_InternalServerError' value='500'/>
+<enum name='kGCDWebServerHTTPStatusCode_LengthRequired' value='411'/>
+<enum name='kGCDWebServerHTTPStatusCode_Locked' value='423'/>
+<enum name='kGCDWebServerHTTPStatusCode_LoopDetected' value='508'/>
+<enum name='kGCDWebServerHTTPStatusCode_MethodNotAllowed' value='405'/>
+<enum name='kGCDWebServerHTTPStatusCode_MovedPermanently' value='301'/>
+<enum name='kGCDWebServerHTTPStatusCode_MultiStatus' value='207'/>
+<enum name='kGCDWebServerHTTPStatusCode_MultipleChoices' value='300'/>
+<enum name='kGCDWebServerHTTPStatusCode_NetworkAuthenticationRequired' value='511'/>
+<enum name='kGCDWebServerHTTPStatusCode_NoContent' value='204'/>
+<enum name='kGCDWebServerHTTPStatusCode_NonAuthoritativeInformation' value='203'/>
+<enum name='kGCDWebServerHTTPStatusCode_NotAcceptable' value='406'/>
+<enum name='kGCDWebServerHTTPStatusCode_NotExtended' value='510'/>
+<enum name='kGCDWebServerHTTPStatusCode_NotFound' value='404'/>
+<enum name='kGCDWebServerHTTPStatusCode_NotImplemented' value='501'/>
+<enum name='kGCDWebServerHTTPStatusCode_NotModified' value='304'/>
+<enum name='kGCDWebServerHTTPStatusCode_OK' value='200'/>
+<enum name='kGCDWebServerHTTPStatusCode_PartialContent' value='206'/>
+<enum name='kGCDWebServerHTTPStatusCode_PaymentRequired' value='402'/>
+<enum name='kGCDWebServerHTTPStatusCode_PermanentRedirect' value='308'/>
+<enum name='kGCDWebServerHTTPStatusCode_PreconditionFailed' value='412'/>
+<enum name='kGCDWebServerHTTPStatusCode_PreconditionRequired' value='428'/>
+<enum name='kGCDWebServerHTTPStatusCode_Processing' value='102'/>
+<enum name='kGCDWebServerHTTPStatusCode_ProxyAuthenticationRequired' value='407'/>
+<enum name='kGCDWebServerHTTPStatusCode_RequestEntityTooLarge' value='413'/>
+<enum name='kGCDWebServerHTTPStatusCode_RequestHeaderFieldsTooLarge' value='431'/>
+<enum name='kGCDWebServerHTTPStatusCode_RequestTimeout' value='408'/>
+<enum name='kGCDWebServerHTTPStatusCode_RequestURITooLong' value='414'/>
+<enum name='kGCDWebServerHTTPStatusCode_RequestedRangeNotSatisfiable' value='416'/>
+<enum name='kGCDWebServerHTTPStatusCode_ResetContent' value='205'/>
+<enum name='kGCDWebServerHTTPStatusCode_SeeOther' value='303'/>
+<enum name='kGCDWebServerHTTPStatusCode_ServiceUnavailable' value='503'/>
+<enum name='kGCDWebServerHTTPStatusCode_SwitchingProtocols' value='101'/>
+<enum name='kGCDWebServerHTTPStatusCode_TemporaryRedirect' value='307'/>
+<enum name='kGCDWebServerHTTPStatusCode_TooManyRequests' value='429'/>
+<enum name='kGCDWebServerHTTPStatusCode_Unauthorized' value='401'/>
+<enum name='kGCDWebServerHTTPStatusCode_UnprocessableEntity' value='422'/>
+<enum name='kGCDWebServerHTTPStatusCode_UnsupportedMediaType' value='415'/>
+<enum name='kGCDWebServerHTTPStatusCode_UpgradeRequired' value='426'/>
+<enum name='kGCDWebServerHTTPStatusCode_UseProxy' value='305'/>
+<enum name='kGCDWebServerLogLevel_Debug' value='0'/>
+<enum name='kGCDWebServerLogLevel_Error' value='4'/>
+<enum name='kGCDWebServerLogLevel_Exception' value='5'/>
+<enum name='kGCDWebServerLogLevel_Info' value='2'/>
+<enum name='kGCDWebServerLogLevel_Verbose' value='1'/>
+<enum name='kGCDWebServerLogLevel_Warning' value='3'/>
+<function name='GCDWebServerEscapeURLString'>
+<arg declared_type='NSString*' name='string' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</function>
+<function name='GCDWebServerFormatISO8601'>
+<arg declared_type='NSDate*' name='date' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</function>
+<function name='GCDWebServerFormatRFC822'>
+<arg declared_type='NSDate*' name='date' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</function>
+<function name='GCDWebServerGetMimeTypeForExtension'>
+<arg declared_type='NSString*' name='extension' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</function>
+<function name='GCDWebServerGetPrimaryIPv4Address'>
+<retval declared_type='NSString*' type='@'/>
+</function>
+<function name='GCDWebServerParseISO8601'>
+<arg declared_type='NSString*' name='string' type='@'/>
+<retval declared_type='NSDate*' type='@'/>
+</function>
+<function name='GCDWebServerParseRFC822'>
+<arg declared_type='NSString*' name='string' type='@'/>
+<retval declared_type='NSDate*' type='@'/>
+</function>
+<function name='GCDWebServerParseURLEncodedForm'>
+<arg declared_type='NSString*' name='form' type='@'/>
+<retval declared_type='NSDictionary*' type='@'/>
+</function>
+<function name='GCDWebServerUnescapeURLString'>
+<arg declared_type='NSString*' name='string' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</function>
+<class name='GCDWebServer'>
+<method selector='addDefaultHandlerForMethod:requestClass:processBlock:'>
+<arg declared_type='NSString*' index='0' name='method' type='@'/>
+<arg declared_type='Class' index='1' name='aClass' type='#'/>
+<arg declared_type='GCDWebServerProcessBlock' function_pointer='true' index='2' name='block' type='@?'>
+<arg declared_type='GCDWebServerRequest*' type='@'/>
+<retval declared_type='GCDWebServerResponse*' type='@'/>
+</arg>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='addGETHandlerForBasePath:directoryPath:indexFilename:cacheAge:allowRangeRequests:'>
+<arg declared_type='NSString*' index='0' name='basePath' type='@'/>
+<arg declared_type='NSString*' index='1' name='directoryPath' type='@'/>
+<arg declared_type='NSString*' index='2' name='indexFilename' type='@'/>
+<arg declared_type='NSUInteger' index='3' name='cacheAge' type='I' type64='Q'/>
+<arg declared_type='BOOL' index='4' name='allowRangeRequests' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='addGETHandlerForPath:filePath:isAttachment:cacheAge:allowRangeRequests:'>
+<arg declared_type='NSString*' index='0' name='path' type='@'/>
+<arg declared_type='NSString*' index='1' name='filePath' type='@'/>
+<arg declared_type='BOOL' index='2' name='isAttachment' type='B'/>
+<arg declared_type='NSUInteger' index='3' name='cacheAge' type='I' type64='Q'/>
+<arg declared_type='BOOL' index='4' name='allowRangeRequests' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='addGETHandlerForPath:staticData:contentType:cacheAge:'>
+<arg declared_type='NSString*' index='0' name='path' type='@'/>
+<arg declared_type='NSData*' index='1' name='staticData' type='@'/>
+<arg declared_type='NSString*' index='2' name='contentType' type='@'/>
+<arg declared_type='NSUInteger' index='3' name='cacheAge' type='I' type64='Q'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='addHandlerForMethod:path:requestClass:processBlock:'>
+<arg declared_type='NSString*' index='0' name='method' type='@'/>
+<arg declared_type='NSString*' index='1' name='path' type='@'/>
+<arg declared_type='Class' index='2' name='aClass' type='#'/>
+<arg declared_type='GCDWebServerProcessBlock' function_pointer='true' index='3' name='block' type='@?'>
+<arg declared_type='GCDWebServerRequest*' type='@'/>
+<retval declared_type='GCDWebServerResponse*' type='@'/>
+</arg>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='addHandlerForMethod:pathRegex:requestClass:processBlock:'>
+<arg declared_type='NSString*' index='0' name='method' type='@'/>
+<arg declared_type='NSString*' index='1' name='regex' type='@'/>
+<arg declared_type='Class' index='2' name='aClass' type='#'/>
+<arg declared_type='GCDWebServerProcessBlock' function_pointer='true' index='3' name='block' type='@?'>
+<arg declared_type='GCDWebServerRequest*' type='@'/>
+<retval declared_type='GCDWebServerResponse*' type='@'/>
+</arg>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='addHandlerWithMatchBlock:processBlock:'>
+<arg declared_type='GCDWebServerMatchBlock' function_pointer='true' index='0' name='matchBlock' type='@?'>
+<arg declared_type='NSString*' type='@'/>
+<arg declared_type='NSURL*' type='@'/>
+<arg declared_type='NSDictionary*' type='@'/>
+<arg declared_type='NSString*' type='@'/>
+<arg declared_type='NSDictionary*' type='@'/>
+<retval declared_type='GCDWebServerRequest*' type='@'/>
+</arg>
+<arg declared_type='GCDWebServerProcessBlock' function_pointer='true' index='1' name='processBlock' type='@?'>
+<arg declared_type='GCDWebServerRequest*' type='@'/>
+<retval declared_type='GCDWebServerResponse*' type='@'/>
+</arg>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='bonjourName'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='bonjourServerURL'>
+<retval declared_type='NSURL*' type='@'/>
+</method>
+<method selector='delegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='init'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='isRunning'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='logError:' variadic='true'>
+<arg declared_type='NSString*' index='0' name='format' printf_format='true' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='logException:'>
+<arg declared_type='NSException*' index='0' name='exception' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='logInfo:' variadic='true'>
+<arg declared_type='NSString*' index='0' name='format' printf_format='true' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='logVerbose:' variadic='true'>
+<arg declared_type='NSString*' index='0' name='format' printf_format='true' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='logWarning:' variadic='true'>
+<arg declared_type='NSString*' index='0' name='format' printf_format='true' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='port'>
+<retval declared_type='NSUInteger' type='I' type64='Q'/>
+</method>
+<method selector='removeAllHandlers'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='runWithOptions:error:'>
+<arg declared_type='NSDictionary*' index='0' name='options' type='@'/>
+<arg declared_type='NSError**' index='1' name='error' type='^@'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='runWithPort:bonjourName:'>
+<arg declared_type='NSUInteger' index='0' name='port' type='I' type64='Q'/>
+<arg declared_type='NSString*' index='1' name='name' type='@'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='serverURL'>
+<retval declared_type='NSURL*' type='@'/>
+</method>
+<method selector='setDelegate:'>
+<arg declared_type='id' index='0' name='delegate' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='setLogLevel:'>
+<arg declared_type='GCDWebServerLogLevel' index='0' name='level' type='i'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='start'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='startWithOptions:error:'>
+<arg declared_type='NSDictionary*' index='0' name='options' type='@'/>
+<arg declared_type='NSError**' index='1' name='error' type='^@'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='startWithPort:bonjourName:'>
+<arg declared_type='NSUInteger' index='0' name='port' type='I' type64='Q'/>
+<arg declared_type='NSString*' index='1' name='name' type='@'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='stop'>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='GCDWebServerConnection'>
+<method selector='abortRequest:withStatusCode:'>
+<arg declared_type='GCDWebServerRequest*' index='0' name='request' type='@'/>
+<arg declared_type='NSInteger' index='1' name='statusCode' type='i' type64='q'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='close'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='didReadBytes:length:'>
+<arg const='true' declared_type='void*' index='0' name='bytes' type='^v'/>
+<arg declared_type='NSUInteger' index='1' name='length' type='I' type64='Q'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='didWriteBytes:length:'>
+<arg const='true' declared_type='void*' index='0' name='bytes' type='^v'/>
+<arg declared_type='NSUInteger' index='1' name='length' type='I' type64='Q'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='localAddressData'>
+<retval declared_type='NSData*' type='@'/>
+</method>
+<method selector='localAddressString'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='open'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='overrideResponse:forRequest:'>
+<arg declared_type='GCDWebServerResponse*' index='0' name='response' type='@'/>
+<arg declared_type='GCDWebServerRequest*' index='1' name='request' type='@'/>
+<retval declared_type='GCDWebServerResponse*' type='@'/>
+</method>
+<method selector='preflightRequest:'>
+<arg declared_type='GCDWebServerRequest*' index='0' name='request' type='@'/>
+<retval declared_type='GCDWebServerResponse*' type='@'/>
+</method>
+<method selector='processRequest:withBlock:'>
+<arg declared_type='GCDWebServerRequest*' index='0' name='request' type='@'/>
+<arg declared_type='GCDWebServerProcessBlock' function_pointer='true' index='1' name='block' type='@?'>
+<arg declared_type='GCDWebServerRequest*' type='@'/>
+<retval declared_type='GCDWebServerResponse*' type='@'/>
+</arg>
+<retval declared_type='GCDWebServerResponse*' type='@'/>
+</method>
+<method selector='remoteAddressData'>
+<retval declared_type='NSData*' type='@'/>
+</method>
+<method selector='remoteAddressString'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='server'>
+<retval declared_type='GCDWebServer*' type='@'/>
+</method>
+<method selector='totalBytesRead'>
+<retval declared_type='NSUInteger' type='I' type64='Q'/>
+</method>
+<method selector='totalBytesWritten'>
+<retval declared_type='NSUInteger' type='I' type64='Q'/>
+</method>
+</class>
+<class name='GCDWebServerDataRequest'>
+<method selector='data'>
+<retval declared_type='NSData*' type='@'/>
+</method>
+<method selector='jsonObject'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='text'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='GCDWebServerDataResponse'>
+<method selector='initWithData:contentType:'>
+<arg declared_type='NSData*' index='0' name='data' type='@'/>
+<arg declared_type='NSString*' index='1' name='type' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithHTML:'>
+<arg declared_type='NSString*' index='0' name='html' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithHTMLTemplate:variables:'>
+<arg declared_type='NSString*' index='0' name='path' type='@'/>
+<arg declared_type='NSDictionary*' index='1' name='variables' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithJSONObject:'>
+<arg declared_type='id' index='0' name='object' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithJSONObject:contentType:'>
+<arg declared_type='id' index='0' name='object' type='@'/>
+<arg declared_type='NSString*' index='1' name='type' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithText:'>
+<arg declared_type='NSString*' index='0' name='text' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='responseWithData:contentType:'>
+<arg declared_type='NSData*' index='0' name='data' type='@'/>
+<arg declared_type='NSString*' index='1' name='type' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='responseWithHTML:'>
+<arg declared_type='NSString*' index='0' name='html' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='responseWithHTMLTemplate:variables:'>
+<arg declared_type='NSString*' index='0' name='path' type='@'/>
+<arg declared_type='NSDictionary*' index='1' name='variables' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='responseWithJSONObject:'>
+<arg declared_type='id' index='0' name='object' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='responseWithJSONObject:contentType:'>
+<arg declared_type='id' index='0' name='object' type='@'/>
+<arg declared_type='NSString*' index='1' name='type' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='responseWithText:'>
+<arg declared_type='NSString*' index='0' name='text' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+</class>
+<class name='GCDWebServerErrorResponse'>
+<method selector='initWithClientError:message:' variadic='true'>
+<arg declared_type='GCDWebServerClientErrorHTTPStatusCode' index='0' name='errorCode' type='i' type64='q'/>
+<arg declared_type='NSString*' index='1' name='format' printf_format='true' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithClientError:underlyingError:message:' variadic='true'>
+<arg declared_type='GCDWebServerClientErrorHTTPStatusCode' index='0' name='errorCode' type='i' type64='q'/>
+<arg declared_type='NSError*' index='1' name='underlyingError' type='@'/>
+<arg declared_type='NSString*' index='2' name='format' printf_format='true' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithServerError:message:' variadic='true'>
+<arg declared_type='GCDWebServerServerErrorHTTPStatusCode' index='0' name='errorCode' type='i' type64='q'/>
+<arg declared_type='NSString*' index='1' name='format' printf_format='true' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithServerError:underlyingError:message:' variadic='true'>
+<arg declared_type='GCDWebServerServerErrorHTTPStatusCode' index='0' name='errorCode' type='i' type64='q'/>
+<arg declared_type='NSError*' index='1' name='underlyingError' type='@'/>
+<arg declared_type='NSString*' index='2' name='format' printf_format='true' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='responseWithClientError:message:' variadic='true'>
+<arg declared_type='GCDWebServerClientErrorHTTPStatusCode' index='0' name='errorCode' type='i' type64='q'/>
+<arg declared_type='NSString*' index='1' name='format' printf_format='true' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='responseWithClientError:underlyingError:message:' variadic='true'>
+<arg declared_type='GCDWebServerClientErrorHTTPStatusCode' index='0' name='errorCode' type='i' type64='q'/>
+<arg declared_type='NSError*' index='1' name='underlyingError' type='@'/>
+<arg declared_type='NSString*' index='2' name='format' printf_format='true' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='responseWithServerError:message:' variadic='true'>
+<arg declared_type='GCDWebServerServerErrorHTTPStatusCode' index='0' name='errorCode' type='i' type64='q'/>
+<arg declared_type='NSString*' index='1' name='format' printf_format='true' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='responseWithServerError:underlyingError:message:' variadic='true'>
+<arg declared_type='GCDWebServerServerErrorHTTPStatusCode' index='0' name='errorCode' type='i' type64='q'/>
+<arg declared_type='NSError*' index='1' name='underlyingError' type='@'/>
+<arg declared_type='NSString*' index='2' name='format' printf_format='true' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+</class>
+<class name='GCDWebServerFileRequest'>
+<method selector='temporaryPath'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='GCDWebServerFileResponse'>
+<method selector='initWithFile:'>
+<arg declared_type='NSString*' index='0' name='path' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithFile:byteRange:'>
+<arg declared_type='NSString*' index='0' name='path' type='@'/>
+<arg declared_type='NSRange' index='1' name='range' type='{_NSRange=II}' type64='{_NSRange=QQ}'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithFile:byteRange:isAttachment:'>
+<arg declared_type='NSString*' index='0' name='path' type='@'/>
+<arg declared_type='NSRange' index='1' name='range' type='{_NSRange=II}' type64='{_NSRange=QQ}'/>
+<arg declared_type='BOOL' index='2' name='attachment' type='B'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithFile:isAttachment:'>
+<arg declared_type='NSString*' index='0' name='path' type='@'/>
+<arg declared_type='BOOL' index='1' name='attachment' type='B'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='responseWithFile:'>
+<arg declared_type='NSString*' index='0' name='path' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='responseWithFile:byteRange:'>
+<arg declared_type='NSString*' index='0' name='path' type='@'/>
+<arg declared_type='NSRange' index='1' name='range' type='{_NSRange=II}' type64='{_NSRange=QQ}'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='responseWithFile:byteRange:isAttachment:'>
+<arg declared_type='NSString*' index='0' name='path' type='@'/>
+<arg declared_type='NSRange' index='1' name='range' type='{_NSRange=II}' type64='{_NSRange=QQ}'/>
+<arg declared_type='BOOL' index='2' name='attachment' type='B'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='responseWithFile:isAttachment:'>
+<arg declared_type='NSString*' index='0' name='path' type='@'/>
+<arg declared_type='BOOL' index='1' name='attachment' type='B'/>
+<retval declared_type='id' type='@'/>
+</method>
+</class>
+<class name='GCDWebServerMultiPart'>
+<method selector='contentType'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='controlName'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='mimeType'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='GCDWebServerMultiPartArgument'>
+<method selector='data'>
+<retval declared_type='NSData*' type='@'/>
+</method>
+<method selector='string'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='GCDWebServerMultiPartFile'>
+<method selector='fileName'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='temporaryPath'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='GCDWebServerMultiPartFormRequest'>
+<method selector='arguments'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='files'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='firstArgumentForControlName:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<retval declared_type='GCDWebServerMultiPartArgument*' type='@'/>
+</method>
+<method selector='firstFileForControlName:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<retval declared_type='GCDWebServerMultiPartFile*' type='@'/>
+</method>
+<method class_method='true' selector='mimeType'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='GCDWebServerRequest'>
+<method selector='URL'>
+<retval declared_type='NSURL*' type='@'/>
+</method>
+<method selector='acceptsGzipContentEncoding'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='byteRange'>
+<retval declared_type='NSRange' type='{_NSRange=II}' type64='{_NSRange=QQ}'/>
+</method>
+<method selector='contentLength'>
+<retval declared_type='NSUInteger' type='I' type64='Q'/>
+</method>
+<method selector='contentType'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='hasBody'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='hasByteRange'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='headers'>
+<retval declared_type='NSDictionary*' type='@'/>
+</method>
+<method selector='ifModifiedSince'>
+<retval declared_type='NSDate*' type='@'/>
+</method>
+<method selector='ifNoneMatch'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='initWithMethod:url:headers:path:query:'>
+<arg declared_type='NSString*' index='0' name='method' type='@'/>
+<arg declared_type='NSURL*' index='1' name='url' type='@'/>
+<arg declared_type='NSDictionary*' index='2' name='headers' type='@'/>
+<arg declared_type='NSString*' index='3' name='path' type='@'/>
+<arg declared_type='NSDictionary*' index='4' name='query' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='method'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='path'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='query'>
+<retval declared_type='NSDictionary*' type='@'/>
+</method>
+</class>
+<class name='GCDWebServerResponse'>
+<method selector='cacheControlMaxAge'>
+<retval declared_type='NSUInteger' type='I' type64='Q'/>
+</method>
+<method selector='contentLength'>
+<retval declared_type='NSUInteger' type='I' type64='Q'/>
+</method>
+<method selector='contentType'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='eTag'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='hasBody'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='init'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithRedirect:permanent:'>
+<arg declared_type='NSURL*' index='0' name='location' type='@'/>
+<arg declared_type='BOOL' index='1' name='permanent' type='B'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithStatusCode:'>
+<arg declared_type='NSInteger' index='0' name='statusCode' type='i' type64='q'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='isGZipContentEncodingEnabled'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='lastModifiedDate'>
+<retval declared_type='NSDate*' type='@'/>
+</method>
+<method class_method='true' selector='response'>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='responseWithRedirect:permanent:'>
+<arg declared_type='NSURL*' index='0' name='location' type='@'/>
+<arg declared_type='BOOL' index='1' name='permanent' type='B'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='responseWithStatusCode:'>
+<arg declared_type='NSInteger' index='0' name='statusCode' type='i' type64='q'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='setCacheControlMaxAge:'>
+<arg declared_type='NSUInteger' index='0' name='cacheControlMaxAge' type='I' type64='Q'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setContentLength:'>
+<arg declared_type='NSUInteger' index='0' name='contentLength' type='I' type64='Q'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setContentType:'>
+<arg declared_type='NSString*' index='0' name='contentType' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setETag:'>
+<arg declared_type='NSString*' index='0' name='eTag' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setGzipContentEncodingEnabled:'>
+<arg declared_type='BOOL' index='0' name='gzipContentEncodingEnabled' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setLastModifiedDate:'>
+<arg declared_type='NSDate*' index='0' name='lastModifiedDate' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setStatusCode:'>
+<arg declared_type='NSInteger' index='0' name='statusCode' type='i' type64='q'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setValue:forAdditionalHeader:'>
+<arg declared_type='NSString*' index='0' name='value' type='@'/>
+<arg declared_type='NSString*' index='1' name='header' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='statusCode'>
+<retval declared_type='NSInteger' type='i' type64='q'/>
+</method>
+</class>
+<class name='GCDWebServerStreamedResponse'>
+<method selector='initWithContentType:streamBlock:'>
+<arg declared_type='NSString*' index='0' name='type' type='@'/>
+<arg declared_type='GCDWebServerStreamingBlock' function_pointer='true' index='1' name='block' type='@?'>
+<arg declared_type='NSError**' type='^@'/>
+<retval declared_type='NSData*' type='@'/>
+</arg>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='responseWithContentType:streamBlock:'>
+<arg declared_type='NSString*' index='0' name='type' type='@'/>
+<arg declared_type='GCDWebServerStreamingBlock' function_pointer='true' index='1' name='block' type='@?'>
+<arg declared_type='NSError**' type='^@'/>
+<retval declared_type='NSData*' type='@'/>
+</arg>
+<retval declared_type='id' type='@'/>
+</method>
+</class>
+<class name='GCDWebServerURLEncodedFormRequest'>
+<method selector='arguments'>
+<retval declared_type='NSDictionary*' type='@'/>
+</method>
+<method class_method='true' selector='mimeType'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='NSObject'>
+<method selector='close'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='close:'>
+<arg declared_type='NSError**' index='0' name='error' type='^@'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='open:'>
+<arg declared_type='NSError**' index='0' name='error' type='^@'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='readData:'>
+<arg declared_type='NSError**' index='0' name='error' type='^@'/>
+<retval declared_type='NSData*' type='@'/>
+</method>
+<method selector='webServerDidCompleteBonjourRegistration:'>
+<arg declared_type='GCDWebServer*' index='0' name='server' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='webServerDidConnect:'>
+<arg declared_type='GCDWebServer*' index='0' name='server' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='webServerDidDisconnect:'>
+<arg declared_type='GCDWebServer*' index='0' name='server' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='webServerDidStart:'>
+<arg declared_type='GCDWebServer*' index='0' name='server' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='webServerDidStop:'>
+<arg declared_type='GCDWebServer*' index='0' name='server' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='writeData:error:'>
+<arg declared_type='NSData*' index='0' name='data' type='@'/>
+<arg declared_type='NSError**' index='1' name='error' type='^@'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+</class>
+<informal_protocol name='GCDWebServerBodyReader'>
+<method selector='close' type='v8@0:4' type64='v16@0:8'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='open:' type='B12@0:4^@8' type64='B24@0:8^@16'>
+<arg declared_type='NSError**' index='0' name='error' type='^@'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='readData:' type='@12@0:4^@8' type64='@24@0:8^@16'>
+<arg declared_type='NSError**' index='0' name='error' type='^@'/>
+<retval declared_type='NSData*' type='@'/>
+</method>
+</informal_protocol>
+<informal_protocol name='GCDWebServerBodyWriter'>
+<method selector='close:' type='B12@0:4^@8' type64='B24@0:8^@16'>
+<arg declared_type='NSError**' index='0' name='error' type='^@'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='open:' type='B12@0:4^@8' type64='B24@0:8^@16'>
+<arg declared_type='NSError**' index='0' name='error' type='^@'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='writeData:error:' type='B16@0:4@8^@12' type64='B32@0:8@16^@24'>
+<arg declared_type='NSData*' index='0' name='data' type='@'/>
+<arg declared_type='NSError**' index='1' name='error' type='^@'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+</informal_protocol>
+<informal_protocol name='GCDWebServerDelegate'>
+<method selector='webServerDidCompleteBonjourRegistration:' type='v12@0:4@8' type64='v24@0:8@16'>
+<arg declared_type='GCDWebServer*' index='0' name='server' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='webServerDidConnect:' type='v12@0:4@8' type64='v24@0:8@16'>
+<arg declared_type='GCDWebServer*' index='0' name='server' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='webServerDidDisconnect:' type='v12@0:4@8' type64='v24@0:8@16'>
+<arg declared_type='GCDWebServer*' index='0' name='server' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='webServerDidStart:' type='v12@0:4@8' type64='v24@0:8@16'>
+<arg declared_type='GCDWebServer*' index='0' name='server' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='webServerDidStop:' type='v12@0:4@8' type64='v24@0:8@16'>
+<arg declared_type='GCDWebServer*' index='0' name='server' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+</informal_protocol>
+</signatures>
