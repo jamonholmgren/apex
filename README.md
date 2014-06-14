@@ -1,6 +1,11 @@
 # apex
 
-TODO: Write a gem description
+Apex is a RubyMotion web framework for OS X. It uses
+GCDWebServer under the hood and provides a Sinatra-like
+router and DSL.
+
+Apex is currently experimental and in development. I'd
+love to have help; feel free get in touch [on Twitter](http://twitter.com/jamonholmgren).
 
 ## Installation
 
@@ -34,7 +39,7 @@ class AppDelegate < Apex::Server
   end
 
   post "/some_post" do |request|
-    request.headers
+    request.headers["User-Agent"]
   end
 
 end

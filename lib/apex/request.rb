@@ -14,6 +14,10 @@ module Apex
       raw.contentType
     end
 
+    def headers
+      raw.headers
+    end
+
     def content_length
       raw.contentLength
     end
