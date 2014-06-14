@@ -11,7 +11,6 @@ class AppDelegate < Apex::Server
   end
 
   get "/" do |r|
-    $r = r
     "<h1>Apex is running. Response: #{r}</h1>" +
     "<p><a href='/about'>About Apex</a></p>"
   end

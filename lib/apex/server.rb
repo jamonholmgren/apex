@@ -24,8 +24,9 @@ module Apex
       [ :get, :post, :put, :patch, :delete ].each do |verb|
         self.server.addDefaultHandlerForMethod(verb.to_s.upcase,
           requestClass: GCDWebServerRequest,
-          processBlock: -> (request) {
+          processBlock: -> (raw_request) {
             layout = false
+            request = Request.new(raw_request)
             if response_block = self.routes[verb][request.path][:handler] rescue nil
               request_args = [request].first(response_block.arity)
               response = response_block.call(*request_args)
