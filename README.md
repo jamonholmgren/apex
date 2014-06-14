@@ -10,7 +10,12 @@ love to have help; feel free get in touch [on Twitter](http://twitter.com/jamonh
 ## Installation
 
 ```ruby
+# In Gemfile:
 gem 'apex'
+
+# In Terminal:
+bundle install
+rake pod:install
 ```
 
 ## Usage
