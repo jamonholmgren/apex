@@ -4,8 +4,8 @@ Apex is a RubyMotion web framework for OS X. It uses
 GCDWebServer under the hood and provides a Sinatra-like
 router and DSL.
 
-Apex is currently experimental and in development. I'd
-love to have help; feel free get in touch [on Twitter](http://twitter.com/jamonholmgren).
+Apex is currently experimental and in development. Let me know
+what you think [on Twitter](http://twitter.com/jamonholmgren).
 
 ## Installation
 
@@ -48,6 +48,20 @@ class AppDelegate < Apex::Server
   end
 
 end
+```
+
+## Benchmarking
+
+Somewhat useless (but still fun) benchmarking against a minimal Node.js/Express app
+shows Apex serving requests about 1.4x as fast as Node.
+
+```sh-session
+# Node.js / express.js app found in ./benchmarks/node/app.js
+$ ab -r -n 10000 -c 6 -r http://192.168.1.246:8081/benchmark | grep "Requests per second"
+Requests per second:    2789.32 [#/sec] (mean)
+# Apex server found in ./app/app_delegate.rb
+$ ab -r -n 10000 -c 6 -r http://192.168.1.246:8080/benchmark | grep "Requests per second"
+Requests per second:    3862.26 [#/sec] (mean)
 ```
 
 ## Contributing
