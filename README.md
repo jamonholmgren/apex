@@ -65,12 +65,12 @@ end
 
 class HomeController < Apex::Controller
   def home
-    render :home, layout: :default
+    render :home, layout: DefaultLayout
   end
 end
 
 class AboutController < Apex::Controller
-  layout :about
+  layout AboutLayout
 
   def about
     render :about
