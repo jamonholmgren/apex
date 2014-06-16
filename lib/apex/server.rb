@@ -51,7 +51,7 @@ module Apex
     end
 
     def start
-      server.runWithPort self.class.port, bonjourName: nil
+      server.startWithPort self.class.port, bonjourName: nil
     end
 
     # Class methods *************************
