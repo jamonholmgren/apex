@@ -50,6 +50,59 @@ class AppDelegate < Apex::Server
 end
 ```
 
+## Alternate Railsy Syntax
+
+This is under consideration.
+
+```ruby
+class AppDelegate < Apex::Server
+  def routes
+    get "/", controller: HomeController, action: :home
+    get "/about", controller: AboutController, action: :about
+    get "/about/me", controller: AboutController, action: :me
+  end
+end
+
+class HomeController < Apex::Controller
+  def home
+    render :home, layout: :default
+  end
+end
+
+class AboutController < Apex::Controller
+  layout :about
+
+  def about
+    render :about
+  end
+  
+  def me
+    render :me, name: "Jamon"
+  end
+end
+
+def AboutView < Apex::View
+  def about
+    "<h1>About</h1>"
+  end
+  
+  def me(args={})
+    "<h1>Me #{args[:name]}</h1>"
+  end
+end
+
+def AboutLayout < Apex::Layout
+  def render
+    "<html>" +
+      "<head>" +
+        "<title>#{title}</title>" +
+      "</head>" +
+      "<body>#{content}</body>" +
+    "</html>"
+  end
+end
+```
+
 ## Benchmarking
 
 Somewhat useless (but still fun) benchmarking against a minimal Node.js/Express app
