@@ -100,6 +100,18 @@ def AboutLayout < Apex::Layout
       "<body>#{content}</body>" +
     "</html>"
   end
+  
+  # Potentially, a Ruby DSL for HTML:
+  def render
+    html do
+      head do
+        title "My title"
+      end
+      body do
+        content_for :body
+      end
+    end
+  end
 end
 ```
 
