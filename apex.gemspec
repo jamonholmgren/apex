@@ -22,8 +22,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_dependency("motion-cocoapods", ">= 1.5.0")
-  gem.add_development_dependency("webstub", "~> 1.0")
-  gem.add_development_dependency("motion-stump", "~> 0.3")
-  gem.add_development_dependency("motion-redgreen", "~> 0.1")
+  # gem.add_development_dependency("webstub", "~> 1.0")
+  # gem.add_development_dependency("motion-stump", "~> 0.3")
   gem.add_development_dependency("rake", ">= 10.0")
 end

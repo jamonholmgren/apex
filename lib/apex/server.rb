@@ -3,6 +3,7 @@ module Apex
     include DelegateInterface
 
     def on_launch
+      return true if RUBYMOTION_ENV == "test"
       add_static_handler
       add_app_handlers
       start

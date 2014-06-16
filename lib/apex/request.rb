@@ -1,5 +1,8 @@
 module Apex
   class Request
+    HEADER_PARAM = /\s*[\w.]+=(?:[\w.]+|"(?:[^"\\]|\\.)*")?\s*/
+    HEADER_VALUE_WITH_PARAMS = /(?:(?:\w+|\*)\/(?:\w+(?:\.|\-|\+)?|\*)*)\s*(?:;#{HEADER_PARAM})*/
+
     attr_accessor :raw
 
     def initialize(raw)
@@ -26,6 +29,7 @@ module Apex
     def query
       raw.query
     end
+    alias_method :params, :query
 
     def path
       raw.path
@@ -35,8 +39,28 @@ module Apex
       raw.URL
     end
 
-    def url_string
-      url.absoluteString
+    def method
+      raw.method
+    end
+
+    def get?
+      method == "GET"
+    end
+
+    def post?
+      method == "POST"
+    end
+
+    def put?
+      method == "PUT"
+    end
+
+    def patch?
+      method == "PATCH"
+    end
+
+    def delete?
+      method == "DELETE"
     end
 
   end
