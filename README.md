@@ -11,7 +11,7 @@ what you think [on Twitter](http://twitter.com/jamonholmgren).
 
 ```ruby
 # In Gemfile:
-gem 'apex'
+gem 'apex', :git => 'https://github.com/clearsightstudio/apex.git
 
 # In Terminal:
 bundle install
@@ -19,6 +19,8 @@ rake pod:install
 ```
 
 ## Usage
+
+### Using your AppDelegate
 
 ```ruby
 class AppDelegate < Apex::Server
@@ -50,7 +52,7 @@ class AppDelegate < Apex::Server
 end
 ```
 
-## Alternate Railsy Syntax
+#### Alternate Railsy Syntax
 
 This is under consideration.
 
@@ -114,6 +116,46 @@ def AboutLayout < Apex::Layout
   end
 end
 ```
+
+### Standalone class
+
+```ruby
+
+class WebServer < Apex::Server
+  port 8080 # defaults to 8080
+
+  layout do
+    "<html>" +
+    "<head><title>Apex</title></head>" +
+    "<body>" +
+    content +
+    "</body>" +
+    "</html>"
+  end
+
+  get "/" do |r|
+    "<h1>Apex is running. Response: #{r}</h1>" +
+    "<p><a href='/about'>About Apex</a></p>"
+  end
+
+  get "/about" do |r|
+    "<h1>About Apex</h1>" +
+    "<p><a href='/'>Home</a></p>"
+  end
+
+  post "/some_post" do |request|
+    request.headers["User-Agent"]
+  end
+end
+```
+
+Then in your AppDelegate (or wherever you'd like to start your server):
+
+```ruby
+@server = WebServer.new
+@server.start_server
+```
+
 
 ## Benchmarking
 
