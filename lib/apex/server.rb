@@ -32,10 +32,13 @@ module Apex
           processBlock: -> (raw_request) {
             layout = false
             request = Request.new(raw_request)
-            if response_block = self.routes[verb][request.path][:handler] rescue nil
+            if (routes_verb = self.routes[verb]) && 
+               (request_path = routes_verb[request.path]) &&
+               (response_block = request_path[:handler])
+
               request_args = [request].first(response_block.arity)
               response = response_block.call(*request_args)
-              layout = self.routes[verb][request.path][:layout]
+              layout = request_path[:layout]
             else
               response = "<h1>404 not found</h1>"
             end
