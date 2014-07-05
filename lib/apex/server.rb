@@ -32,14 +32,36 @@ module Apex
           processBlock: -> (raw_request) {
             layout = false
             request = Request.new(raw_request)
-            if response_block = self.routes[verb][request.path][:handler] rescue nil
+            if (routes_verb = self.routes[verb]) && 
+               (request_path = routes_verb[request.path]) &&
+               (response_block = request_path[:handler])
+
               request_args = [request].first(response_block.arity)
               response = response_block.call(*request_args)
-              layout = self.routes[verb][request.path][:layout]
+              layout = request_path[:layout]
+
+              unless response_type = request_path[:response_type]
+                case response # Auto detect
+                when Hash
+                  response_type = :json
+                else
+                  response_type = :html
+                # TODO, do the the rest of the types
+                end
+              end
+
+              case response_type
+              when :html
+                GCDWebServerDataResponse.responseWithHTML(apply_layout(response, layout))
+              when :json
+                GCDWebServerDataResponse.responseWithJSONObject(apply_layout(response, layout))
+              # TODO, do the the rest of the types
+              end
+
             else
               response = "<h1>404 not found</h1>"
+              GCDWebServerDataResponse.responseWithHTML(apply_layout(response, layout))
             end
-            GCDWebServerDataResponse.responseWithHTML apply_layout(response, layout)
           }
         )
       end
@@ -61,23 +83,23 @@ module Apex
     # Class methods *************************
 
     def self.get(path, args={}, &block)
-      routes[:get][path] = { handler: block, layout: args[:layout] }
+      routes[:get][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
     end
 
     def self.post(path, args={}, &block)
-      routes[:post][path] = { handler: block, layout: args[:layout] }
+      routes[:post][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
     end
 
     def self.put(path, args={}, &block)
-      routes[:put][path] = { handler: block, layout: args[:layout] }
+      routes[:put][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
     end
 
     def self.patch(path, args={}, &block)
-      routes[:patch][path] = { handler: block, layout: args[:layout] }
+      routes[:patch][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
     end
 
     def self.delete(path, args={}, &block)
-      routes[:delete][path] = { handler: block, layout: args[:layout] }
+      routes[:delete][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
     end
 
     def self.routes

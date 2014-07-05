@@ -156,6 +156,28 @@ Then in your AppDelegate (or wherever you'd like to start your server):
 @server.start_server
 ```
 
+## JSON
+
+You can also return json. You can specify the response_type, like so:
+
+```ruby
+get "/current_user", response_type: :json do |request|
+  {
+    name: 'Todd',
+    age: 21
+  }
+end  
+```
+
+Or it will auto-detect the repsonse type if you return a hash instead of a string:
+```ruby
+get "/current_user" do |request|
+  {
+    name: 'Todd',
+    age: 21
+  }
+end  
+```
 
 ## Benchmarking
 
