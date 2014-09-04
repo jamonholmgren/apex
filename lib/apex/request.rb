@@ -3,7 +3,7 @@ module Apex
     HEADER_PARAM = /\s*[\w.]+=(?:[\w.]+|"(?:[^"\\]|\\.)*")?\s*/
     HEADER_VALUE_WITH_PARAMS = /(?:(?:\w+|\*)\/(?:\w+(?:\.|\-|\+)?|\*)*)\s*(?:;#{HEADER_PARAM})*/
 
-    attr_accessor :raw
+    attr_accessor :raw, :route
 
     def initialize(raw)
       @raw = raw
