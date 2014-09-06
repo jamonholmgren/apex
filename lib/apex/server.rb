@@ -26,9 +26,10 @@ module Apex
     end
 
     def add_app_handlers
+      verb_to_request_class = {:post => GCDWebServerURLEncodedFormRequest}
       [ :get, :post, :put, :patch, :delete ].each do |verb|
         self.server.addDefaultHandlerForMethod(verb.to_s.upcase,
-          requestClass: GCDWebServerRequest,
+          requestClass: (verb_to_request_class[verb] ? verb_to_request_class[verb] : GCDWebServerRequest),
           processBlock: -> (raw_request) {
             layout = false
             request = Request.new(raw_request)
