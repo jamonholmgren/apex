@@ -1,5 +1,6 @@
 module Apex
   class Server
+    PLACEHOLDER_MARKER = ':m'
     include DelegateInterface
 
     attr_accessor :port
@@ -27,6 +28,39 @@ module Apex
       self.class.layouts
     end
 
+    #Matching "path" against "routes"
+    def request_path_matching_path(path, verb)
+      routes_verb = self.routes[verb]
+      return [nil, nil, nil] if !routes
+      match = routes_verb[path]
+      return [path, match, []] if match
+      path_comps = path.split('/')
+      routes_verb.each do |route_slug, _|
+        route_comps = route_slug.split('/').collect {|e| (e.start_with? ':') ? PLACEHOLDER_MARKER : e}
+        if route_comps.size == path_comps.size || route_comps[-1] == '*'
+          args = []
+          comps_used = 0
+          matched = route_comps.zip(path_comps).all? do |pattern, comp|
+            if pattern == PLACEHOLDER_MARKER
+              args << comp
+              comps_used += 1
+              true
+            elsif pattern == '*'
+              args << path_comps[comps_used,path_comps.size].join('/')
+              true
+            elsif pattern == comp
+              comps_used += 1
+              true
+            else
+              false
+            end
+          end
+          return [route_slug, routes_verb[route_slug], args] if matched
+        end
+      end
+      return [nil, nil, nil]
+    end
+
     def add_app_handlers
       verb_to_request_class = {:post => GCDWebServerURLEncodedFormRequest}
       [ :get, :post, :put, :patch, :delete ].each do |verb|
@@ -35,11 +69,12 @@ module Apex
           processBlock: -> (raw_request) {
             layout = false
             request = Request.new(raw_request)
-            if (routes_verb = self.routes[verb]) && 
-               (request_path = routes_verb[request.path]) &&
-               (response_block = request_path[:handler])
-
+            routes_verb = self.routes[verb]
+            route, request_path, args = request_path_matching_path(request.path, verb)
+            if route && (response_block = request_path[:handler])
+              request.route = route
               request_args = [request].first(response_block.arity)
+              request_args.concat(args)
               response = response_block.call(*request_args)
               layout = request_path[:layout]
 
