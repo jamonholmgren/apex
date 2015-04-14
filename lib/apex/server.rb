@@ -61,9 +61,12 @@ module Apex
               # TODO, do the the rest of the types
               end
 
+           elsif request.raw.path.include?('.js')
+              jsfile = NSBundle.mainBundle.pathForResource("assets", ofType:nil) + request.raw.path
+              response = File.exists?(jsfile) ? File.read(jsfile) : "{}"
+              GCDWebServerDataResponse.responseWithData(response.to_data, contentType:"text/javascript")
             else
-              response = "<h1>404 not found</h1>"
-              GCDWebServerDataResponse.responseWithHTML(apply_layout(response, layout))
+              GCDWebServerDataResponse.responseWithHTML(apply_layout("<h1>404 not found</h1>", layout))
             end
           }
         )
