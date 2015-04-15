@@ -2,8 +2,6 @@ module Apex
   class Server
     include DelegateInterface
 
-    attr_accessor :port
-
     def on_launch
       start_server
     end
@@ -28,14 +26,14 @@ module Apex
     end
 
     def add_app_handlers
-      verb_to_request_class = {:post => GCDWebServerURLEncodedFormRequest}
       [ :get, :post, :put, :patch, :delete ].each do |verb|
         self.server.addDefaultHandlerForMethod(verb.to_s.upcase,
-          requestClass: (verb_to_request_class[verb] ? verb_to_request_class[verb] : GCDWebServerRequest),
+          requestClass: GCDWebServerRequest,
           processBlock: -> (raw_request) {
             layout = false
             request = Request.new(raw_request)
-            if (routes_verb = self.routes[verb]) && 
+
+            if (routes_verb = self.routes[verb]) &&
                (request_path = routes_verb[request.path]) &&
                (response_block = request_path[:handler])
 
@@ -43,12 +41,14 @@ module Apex
               response = response_block.call(*request_args)
               layout = request_path[:layout]
 
+
               unless response_type = request_path[:response_type]
+
                 case response # Auto detect
                 when Hash
                   response_type = :json
                 else
-                  response_type = :html
+                 response_type = :html
                 # TODO, do the the rest of the types
                 end
               end
@@ -60,13 +60,19 @@ module Apex
                 GCDWebServerDataResponse.responseWithJSONObject(apply_layout(response, layout))
               # TODO, do the the rest of the types
               end
-
-           elsif request.raw.path.include?('.js')
-              jsfile = NSBundle.mainBundle.pathForResource("assets", ofType:nil) + request.raw.path
-              response = File.exists?(jsfile) ? File.read(jsfile) : "{}"
-              GCDWebServerDataResponse.responseWithData(response.to_data, contentType:"text/javascript")
             else
-              GCDWebServerDataResponse.responseWithHTML(apply_layout("<h1>404 not found</h1>", layout))
+              file = NSBundle.mainBundle.pathForResource("assets", ofType: nil) + request.raw.path
+              if File.exists?(file)
+                ext = File.extname(file)
+                if MimeTypes.full_list.keys.include?(ext)
+                  response = File.read(file)
+                  GCDWebServerDataResponse.responseWithData(response.to_data, contentType: MimeTypes.for(ext))
+                else
+                  GCDWebServerDataResponse.responseWithHTML(apply_layout("<h1>404 not found</h1>", layout))
+                end
+              else
+                GCDWebServerDataResponse.responseWithHTML(apply_layout("<h1>404 not found</h1>", layout))
+              end
             end
           }
         )
@@ -83,15 +89,7 @@ module Apex
     end
 
     def start
-      server.startWithPort port, bonjourName: nil
-    end
-
-    def stop
-      server.stop
-    end
-
-    def port
-      @port ? @port : self.class.port
+      server.startWithPort self.class.port, bonjourName: nil
     end
 
     # Class methods *************************
@@ -138,4 +136,5 @@ module Apex
     end
 
   end
+
 end
