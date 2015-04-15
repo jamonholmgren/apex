@@ -35,7 +35,7 @@ module Apex
           processBlock: -> (raw_request) {
             layout = false
             request = Request.new(raw_request)
-            if (routes_verb = self.routes[verb]) && 
+            if (routes_verb = self.routes[verb]) &&
                (request_path = routes_verb[request.path]) &&
                (response_block = request_path[:handler])
 
@@ -62,8 +62,18 @@ module Apex
               end
 
             else
-              response = "<h1>404 not found</h1>"
-              GCDWebServerDataResponse.responseWithHTML(apply_layout(response, layout))
+              file = NSBundle.mainBundle.pathForResource("assets", ofType: nil) + request.raw.path
+              if File.exists?(file)
+                ext = File.extname(file)
+                if MimeTypes.full_list.keys.include?(ext)
+                  response = File.read(file)
+                  GCDWebServerDataResponse.responseWithData(response.to_data, contentType: MimeTypes.for(ext))
+                else
+                  GCDWebServerDataResponse.responseWithHTML(apply_layout("<h1>404 not found</h1>", layout))
+                end
+              else
+                GCDWebServerDataResponse.responseWithHTML(apply_layout("<h1>404 not found</h1>", layout))
+              end
             end
           }
         )
