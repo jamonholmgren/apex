@@ -179,6 +179,10 @@ get "/current_user" do |request|
 end  
 ```
 
+## Assets
+
+Apex can serve static assets as well as generated content. To do so, simply place any assets in `resources/assets`  and they'll be available from the root URL. For example `resources/assets/favicon.ico` will show up under `mydomain.com/favicon.ico`.
+
 ## Benchmarking
 
 Somewhat useless (but still fun) benchmarking against a minimal Node.js/Express app
