@@ -62,7 +62,7 @@ module Apex
               end
 
             else
-              file = NSBundle.mainBundle.pathForResource("assets", ofType: nil) + request.raw.path
+              file = NSBundle.mainBundle.pathForResource("public", ofType: nil) + request.raw.path
               if File.exists?(file)
                 ext = File.extname(file)
                 if MimeTypes.full_list.keys.include?(ext)
@@ -85,7 +85,7 @@ module Apex
     end
 
     def add_static_handler
-      public_path = NSBundle.mainBundle.pathForResource("assets", ofType:nil)
+      public_path = NSBundle.mainBundle.pathForResource("public", ofType: nil)
       self.server.addGETHandlerForBasePath("/", directoryPath:public_path, indexFilename:nil, cacheAge:3600, allowRangeRequests:false)
     end
 
