@@ -181,7 +181,7 @@ end
 
 ## Assets
 
-Apex can serve static assets as well as generated content. To do so, simply place any assets in `resources/assets`  and they'll be available from the root URL. For example `resources/assets/favicon.ico` will show up under `mydomain.com/favicon.ico`.
+Apex can serve static assets as well as generated content. To do so, simply place any assets in `resources/public`  and they'll be available from the root URL. For example `resources/public/favicon.ico` will show up under `mydomain.com/favicon.ico`.
 
 ## Benchmarking
 
