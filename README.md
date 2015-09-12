@@ -11,7 +11,7 @@ what you think [on Twitter](http://twitter.com/jamonholmgren).
 
 ```ruby
 # In Gemfile:
-gem 'apex', :git => 'https://github.com/clearsightstudio/apex.git'
+gem 'apex', :git => 'https://github.com/infinitered/apex.git'
 
 # In Terminal:
 bundle install
