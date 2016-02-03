@@ -7,6 +7,8 @@ router and DSL.
 Apex is currently experimental and in development. Let me know
 what you think [on Twitter](http://twitter.com/jamonholmgren).
 
+Apex is a research project of ![Infinite Red](http://infinite.red), a web and mobile development company based in Portland, OR and San Francisco, CA.
+
 ## Installation
 
 ```ruby
