@@ -1,12 +1,12 @@
 PODS:
-  - GCDWebServer (2.4):
-    - GCDWebServer/Core
-  - GCDWebServer/Core (2.4)
+  - GCDWebServer (2.5.3):
+    - GCDWebServer/Core (= 2.5.3)
+  - GCDWebServer/Core (2.5.3)
 
 DEPENDENCIES:
-  - GCDWebServer
+  - GCDWebServer (~> 2.4)
 
 SPEC CHECKSUMS:
-  GCDWebServer: b7473bcd8fd50abf48c5c5aa28f8743e29e1e116
+  GCDWebServer: d765294661987168ab30b03259c82020fb340ff9
 
-COCOAPODS: 0.33.1
+COCOAPODS: 0.39.0
