@@ -82,7 +82,7 @@ describe "Apex::Server" do
 
   # TODO - implement this test. It's failing for some reason because the
   # the response is nil.
-  
+
   # it "should serve assets from resources/assets" do
   #   url = NSURL.URLWithString("http://localhost:8080/somefile.txt")
   #
