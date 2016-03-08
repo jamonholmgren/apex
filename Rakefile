@@ -12,4 +12,5 @@ end
 
 Motion::Project::App.setup do |app|
   app.name = 'apex'
+  app.info_plist['NSAppTransportSecurity'] = { 'NSAllowsArbitraryLoads' => true }
 end
