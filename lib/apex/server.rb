@@ -103,24 +103,34 @@ module Apex
 
     # Class methods *************************
 
-    def self.get(path, args={}, &block)
-      routes[:get][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
+    def self.get(paths, args={}, &block)
+      Array(paths).each do |path|
+        routes[:get][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
+      end
     end
 
-    def self.post(path, args={}, &block)
-      routes[:post][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
+    def self.post(paths, args={}, &block)
+      Array(paths).each do |path|
+        routes[:post][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
+      end
     end
 
-    def self.put(path, args={}, &block)
-      routes[:put][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
+    def self.put(paths, args={}, &block)
+      Array(paths).each do |path|
+        routes[:put][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
+      end
     end
 
-    def self.patch(path, args={}, &block)
-      routes[:patch][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
+    def self.patch(paths, args={}, &block)
+      Array(paths).each do |path|
+        routes[:patch][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
+      end
     end
 
-    def self.delete(path, args={}, &block)
-      routes[:delete][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
+    def self.delete(paths, args={}, &block)
+      Array(paths).each do |path|
+        routes[:delete][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
+      end
     end
 
     def self.routes

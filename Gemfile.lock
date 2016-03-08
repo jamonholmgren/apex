@@ -67,7 +67,7 @@ PLATFORMS
 
 DEPENDENCIES
   apex!
-  rake (>= 10.0)
+  rake
 
 BUNDLED WITH
    1.10.6
