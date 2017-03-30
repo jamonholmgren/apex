@@ -208,3 +208,7 @@ Requests per second:    3862.26 [#/sec] (mean)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Premium Support
+
+[apex](https://github.com/infinitered/apex), as an open source project, is free to use and always will be. [Infinite Red](https://infinite.red/) offers premium apex support and general mobile app design/development services. Email us at [hello@infinite.red](mailto:hello@infinite.red) to get in touch with us for more details.
