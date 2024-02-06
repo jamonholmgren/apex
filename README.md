@@ -42,6 +42,12 @@ class AppDelegate < Apex::Server
     "<p><a href='/about'>About Apex</a></p>"
   end
 
+  # You can send an array and both paths
+  # will have the same response
+  get ["path1", "path2"] do |r|
+    "Path 1 and 2"
+  end
+
   get "/about" do |r|
     "<h1>About Apex</h1>" +
     "<p><a href='/'>Home</a></p>"
@@ -79,7 +85,7 @@ class AboutController < Apex::Controller
   def about
     render :about
   end
-  
+
   def me
     render :me, name: "Jamon"
   end
@@ -89,7 +95,7 @@ def AboutView < Apex::View
   def about
     "<h1>About</h1>"
   end
-  
+
   def me(args={})
     "<h1>Me #{args[:name]}</h1>"
   end
@@ -104,7 +110,7 @@ def AboutLayout < Apex::Layout
       "<body>#{content}</body>" +
     "</html>"
   end
-  
+
   # Potentially, a Ruby DSL for HTML:
   def render
     html do

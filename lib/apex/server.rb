@@ -62,8 +62,9 @@ module Apex
               end
 
             else
-              file = NSBundle.mainBundle.pathForResource("assets", ofType: nil) + request.raw.path
-              if File.exists?(file)
+              assets_path = NSBundle.mainBundle.pathForResource("assets", ofType: nil)
+              file = assets_path + request.raw.path if assets_path
+              if file &&  File.exists?(file)
                 ext = File.extname(file)
                 if MimeTypes.full_list.keys.include?(ext)
                   response = File.read(file)
@@ -103,24 +104,34 @@ module Apex
 
     # Class methods *************************
 
-    def self.get(path, args={}, &block)
-      routes[:get][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
+    def self.get(paths, args={}, &block)
+      Array(paths).each do |path|
+        routes[:get][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
+      end
     end
 
-    def self.post(path, args={}, &block)
-      routes[:post][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
+    def self.post(paths, args={}, &block)
+      Array(paths).each do |path|
+        routes[:post][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
+      end
     end
 
-    def self.put(path, args={}, &block)
-      routes[:put][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
+    def self.put(paths, args={}, &block)
+      Array(paths).each do |path|
+        routes[:put][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
+      end
     end
 
-    def self.patch(path, args={}, &block)
-      routes[:patch][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
+    def self.patch(paths, args={}, &block)
+      Array(paths).each do |path|
+        routes[:patch][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
+      end
     end
 
-    def self.delete(path, args={}, &block)
-      routes[:delete][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
+    def self.delete(paths, args={}, &block)
+      Array(paths).each do |path|
+        routes[:delete][path] = { handler: block, layout: args[:layout], response_type: args[:response_type] }
+      end
     end
 
     def self.routes
