@@ -1,4 +1,4 @@
-describe "Apex::Request GET request" do
+describe "Apex::Request" do
 
   def headers
     {
@@ -17,12 +17,14 @@ describe "Apex::Request GET request" do
     { "test" => "tested" }
   end
 
-  def raw_request
-    @raw_request ||= GCDWebServerRequest.alloc.initWithMethod("GET", url: "http://localhost:8080", headers: headers, path:"/benchmark", query: query)
+  def raw_request(req_type = :get)
+    @_raw_requests ||= {}
+    @_raw_requests[req_type] ||= GCDWebServerRequest.alloc.initWithMethod(req_type.to_s.upcase, url: "http://localhost:8080", headers: headers, path:"/benchmark", query: query)
   end
 
-  def request
-    @request ||= Apex::Request.new(raw_request)
+  def request(req_type = :get)
+    @_request ||= {}
+    @_request[req_type] ||= Apex::Request.new(raw_request(req_type))
   end
 
   it "#raw" do
@@ -62,28 +64,15 @@ describe "Apex::Request GET request" do
     request.params.should == query
   end
 
-  it "#method" do
-    request.method.should == "GET"
-  end
+  [:get, :post, :patch, :delete].each do |req_type|
+    describe "#{req_type.to_s.upcase} Requests" do
+      it "#method" do
+        request(req_type).method.should == req_type.to_s.upcase
+      end
 
-  it "#get?" do
-    request.get?.should.be.true
+      it "#req_type?" do
+        request(req_type).send("#{req_type}?").should.be.true
+      end
+    end
   end
-
-  it "#post?" do
-    request.post?.should.be.false
-  end
-
-  it "#put?" do
-    request.put?.should.be.false
-  end
-
-  it "#patch?" do
-    request.patch?.should.be.false
-  end
-
-  it "#delete?" do
-    request.delete?.should.be.false
-  end
-
 end
