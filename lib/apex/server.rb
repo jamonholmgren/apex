@@ -62,8 +62,9 @@ module Apex
               end
 
             else
-              file = NSBundle.mainBundle.pathForResource("assets", ofType: nil) + request.raw.path
-              if File.exists?(file)
+              assets_path = NSBundle.mainBundle.pathForResource("assets", ofType: nil)
+              file = assets_path + request.raw.path if assets_path
+              if file &&  File.exists?(file)
                 ext = File.extname(file)
                 if MimeTypes.full_list.keys.include?(ext)
                   response = File.read(file)
